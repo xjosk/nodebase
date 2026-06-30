@@ -21,10 +21,26 @@ const Page = () => {
     }),
   );
 
+  const testAI = useMutation(
+    trpc.testAI.mutationOptions({
+      onSuccess: (ctx) => {
+        toast.success(ctx.message);
+      },
+    }),
+  );
+
   return (
     <div className="min-h-screen min-w-screen flex items-center justify-center flex-col gap-y-6">
       protected server component
       {JSON.stringify(data, null, 2)}
+      <Button
+        disabled={testAI.isPending}
+        onClick={() => {
+          testAI.mutate();
+        }}
+      >
+        Test AI
+      </Button>
       <Button
         disabled={create.isPending}
         onClick={() => {
