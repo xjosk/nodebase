@@ -1,9 +1,7 @@
-import { z } from "zod";
-import { createTRPCRouter, protectedProcedure } from "../init";
-import prisma from "@/lib/db";
+import { TRPCError } from "@trpc/server";
 import { inngest } from "@/inngest/client";
-import { google } from "@ai-sdk/google";
-import { generateText } from "ai";
+import prisma from "@/lib/db";
+import { createTRPCRouter, protectedProcedure } from "../init";
 
 export const appRouter = createTRPCRouter({
   testAI: protectedProcedure.mutation(async () => {
