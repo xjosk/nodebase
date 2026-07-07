@@ -54,7 +54,7 @@ function PaginationLink({
       <a
         aria-current={isActive ? "page" : undefined}
         data-slot="pagination-link"
-        data-active={isActive}
+        data-[active=true]={isActive}
         {...props}
       />
     </Button>
