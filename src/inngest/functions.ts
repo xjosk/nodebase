@@ -13,7 +13,7 @@ const anthropic = createAnthropic();
 export const execute = inngest.createFunction(
   { id: "execute-ai", triggers: { event: "execute/ai" } },
   async ({ event, step }) => {
-    Sentry.logger.error("Test from app", { error: "Test_from_nextsj" });
+    // Sentry.logger.error("Test from app", { error: "Test_from_nextsj" });
 
     const { steps: googleSteps } = await step.ai.wrap(
       "gemini-generate-text",
